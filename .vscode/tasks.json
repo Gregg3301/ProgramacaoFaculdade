@@ -1,0 +1,57 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compilar",
+            "type": "shell",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "group": "build",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Compila o código C"
+        },
+        {
+            "label": "Executar",
+            "type": "shell",
+            "dependsOn": [
+                "Compilar"
+            ],
+            "command": "${fileDirname}/${fileBasenameNoExtension}",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "detail": "Executa o programa C compilado"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc arquivo de build ativo",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Tarefa gerada pelo Depurador."
+        }
+    ]
+}
